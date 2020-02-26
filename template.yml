@@ -59,23 +59,27 @@ data:
   - dataset: nigeria_states
     key: male
     name: Male
-    type: column
+    type: columns
     column: nigeria_states::B
+    optional: true
   - dataset: nigeria_states
     key: female
     name: Female
-    type: column
+    type: columns
     column: nigeria_states::C
+    optional: true
   - dataset: nigeria_states
     key: state
     name: State
     type: column
     column: nigeria_states::D
+    optional: true
   - dataset: nigeria_states
     key: value
     name: Total
     type: column
     column: nigeria_states::I
+    optional: true
 # - dataset: nigeria_states
 #     key: name
 #     name: State
