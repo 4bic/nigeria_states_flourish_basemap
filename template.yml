@@ -1,0 +1,90 @@
+# The 'id' should be a string that uniquely identifies your template
+id: 'nigeria-states'
+name: Nigeria States Basemap
+description: Counselling Cases by state in 2018
+author: Code For Africa Data Team 
+# autoheight: 1x1
+
+# This template is compatible with SDK version 3
+sdk_version: 3
+
+build:
+  # Defines the build processes used to build your template from source.
+  # You can have any number of build processes, and changes to the relevant
+  # files will trigger the appropriate build. Here we define build scripts
+  # for JavaScript and CSS.
+
+  src:
+    script: npm run build
+    # You can specify a whole directory, or individual files, or both.
+    # A change inside the directory or to any of the listed files will
+    # trigger a rebuild and reload.
+    directory: src
+    files:
+      - rollup.config.js
+
+  less:
+    script: npm run less
+    directory: less
+
+settings:
+  # Creates a settings panel that enables the end user to set the default state for
+  # individual visualisations made with this template.
+  - property: color
+    name: Color
+    description: The color of the maps
+    type: color
+  - property: opacity
+    name: Opacity
+    description: The opacity of the maps
+    type: number
+    min: 0
+    max: 1
+    step: 0.05
+
+  - Section title # Headings can be used to break up the settings into collapsible sections
+  - property: example_state_property # Refers to a property in the template's state object
+    name: Example number setting # Display name for the settings panel
+    description: A setting for changing a number # Optional description for the settings panel
+    type: number # See available types above
+
+data:
+  # The data section determines how data is made available to your template,
+  # and the sample data that is used. See the documentation.
+  - dataset: nigeria_states
+    key: geometry
+    name: Geometry
+    type: column
+    column: nigeria_states::A
+  - dataset: nigeria_states
+    key: male
+    name: Male
+    type: column
+    column: nigeria_states::B
+  - dataset: nigeria_states
+    key: female
+    name: Female
+    type: column
+    column: nigeria_states::C
+  - dataset: nigeria_states
+    key: state
+    name: State
+    type: column
+    column: nigeria_states::D
+  - dataset: nigeria_states
+    key: value
+    name: Total
+    type: column
+    column: nigeria_states::I
+# - dataset: nigeria_states
+#     key: name
+#     name: State
+#     type: column
+#     column: nigeria_states::E
+# - dataset: nigeria_states
+#     key: name
+#     name: State
+#     type: column
+#     column: nigeria_states::i
+
+
